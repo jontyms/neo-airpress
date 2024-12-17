@@ -7,7 +7,7 @@ setuptools.setup(
     name="neo-airpress",
     version="1.0.5",
     author="Jstyles",
-    author_email="github@jontyms.com",
+    author_email="jstyles@styl.dev",
     description="A frustration-free compression tool for PKPass archives.",
     long_description=long_description,
     long_description_content_type="text/markdown",

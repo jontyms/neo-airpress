@@ -3,8 +3,7 @@
 # To learn more about their projects visit https://develat.io/ or check out
 # original implementation at https://github.com/Develatio/django-walletpass
 # pylint: disable=protected-access, invalid-name, too-many-locals
-import base64
-import secrets
+
 
 from cryptography import x509
 from cryptography.hazmat.bindings.openssl.binding import Binding
