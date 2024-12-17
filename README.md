@@ -8,7 +8,7 @@ AirPress lets you create, sign and zip PKPass archives for Apple Wallet in runti
 ## Installation
 From PyPI:
 
-`pip install airpress`
+`pip install neo-airpress`
 
 ## Quickstart
 ```python
