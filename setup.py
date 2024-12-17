@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="neo-airpress",
-    version="1.0.6",
+    version="1.1.0",
     author="Jstyles",
     author_email="jstyles@styl.dev",
     description="A frustration-free compression tool for PKPass archives.",

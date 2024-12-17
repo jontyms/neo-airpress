@@ -1,8 +1,4 @@
 # Neo-Airpress
-
-[![PyPI version](https://img.shields.io/pypi/v/airpress.svg)](https://pypi.python.org/pypi/neo-airpress)
-[![PyPI version](https://img.shields.io/pypi/pyversions/airpress.svg)](https://pypi.python.org/pypi/neo-airpress)
-
 AirPress lets you create, sign and zip PKPass archives for Apple Wallet in runtime memory without a need for temporary files or directories.
 
 ## Installation
