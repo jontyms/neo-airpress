@@ -11,12 +11,14 @@ setuptools.setup(
     description="A frustration-free compression tool for PKPass archives.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/captain-fox/airpress",
+    url="https://github.com/jontyms/neo-airpress",
     packages=["airpress"],
     install_requires=[
         "cryptography>=44.0.0",
     ],
+    license="MIT",
     classifiers=[
+        "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",

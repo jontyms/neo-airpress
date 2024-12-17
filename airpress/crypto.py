@@ -1,10 +1,4 @@
-# pkcs signature implementation was generously provided
-# by gentlemen of "Develatio Technologies SL", which is much appreciated.
-# To learn more about their projects visit https://develat.io/ or check out
-# original implementation at https://github.com/Develatio/django-walletpass
-# pylint: disable=protected-access, invalid-name, too-many-locals
-
-
+# SPDX-License-Identifier: MIT
 from cryptography import x509
 from cryptography.hazmat.bindings.openssl.binding import Binding
 from cryptography.hazmat.primitives import hashes, serialization
@@ -14,9 +8,6 @@ copenssl = Binding.lib
 cffi = Binding.ffi
 
 
-# SMIME isn't supported by pyca/cryptography:
-# https://github.com/pyca/cryptography/issues/1621
-# adjusted with latest cryptography code from https://github.com/devartis/passbook/pull/60/files
 def pkcs7_sign(
     certcontent,
     keycontent,
@@ -24,14 +15,33 @@ def pkcs7_sign(
     data,
     key_password=None,
 ):
-    """Sign data with PKCS#7.
+    """
+    Creates a PKCS#7 detached signature for the given data using provided certificates and private key.
 
     Args:
-        keycontent (bytes): Content of pem file certificate
-        keycontent (bytes): Content of key file
-        wwdr_certificate (bytes): Content of Intermediate cert file
-        data (bytes): Data to be signed
-        key_password (bytes, optional): key file passwd. Defaults to None.
+        certcontent (bytes): The signer's certificate in PEM format.
+        keycontent (bytes): The signer's private key in PEM format.
+        wwdr_certificate (bytes): Apple's Worldwide Developer Relations (WWDR) certificate in DER format.
+        data (bytes): The data to be signed.
+        key_password (bytes, optional): Password for the private key if it's encrypted. Defaults to None.
+
+    Returns:
+        bytes: The PKCS#7 signature in DER format.
+
+    The function performs the following steps:
+    1. Loads the signer's certificate from PEM format
+    2. Loads the private key (with optional password)
+    3. Loads the WWDR certificate from DER format
+    4. Creates a detached PKCS#7 signature using SHA256 as the hash algorithm
+
+    Example:
+        signature = pkcs7_sign(
+            cert_data,
+            key_data,
+            wwdr_cert_data,
+            content_to_sign,
+            key_password=b'optional_password'
+        )
     """
 
     cert = x509.load_pem_x509_certificate(certcontent)
