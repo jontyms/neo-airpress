@@ -33,9 +33,17 @@ def key():
 @pytest.fixture
 def cert():
     with open(
-        os.path.join(
-            os.path.dirname(__file__), "credentials/unprotected_dummy_cert.pem"
-        ),
+        os.path.join(os.path.dirname(__file__), "credentials/unprotected_dummy_cert.pem"),
+        "rb",
+    ) as c:
+        cert = c.read()
+    return cert
+
+
+@pytest.fixture
+def wwdr_cert():
+    with open(
+        os.path.join(os.path.dirname(__file__), "credentials/AppleWWDRCA.pem"),
         "rb",
     ) as c:
         cert = c.read()
