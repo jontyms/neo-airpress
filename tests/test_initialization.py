@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: MIT
 import pytest
-from airpress.compressor import PKPass
+from neo_airpress.compressor import PKPass
 
 
 def test_should_initialize_pkpass_without_assets():

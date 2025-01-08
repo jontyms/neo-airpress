@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MIT
 import os
 import pytest
-from airpress.compressor import PKPass
+from neo_airpress.compressor import PKPass
 
 
 @pytest.fixture
