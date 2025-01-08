@@ -8,7 +8,7 @@ From PyPI:
 
 ## Quickstart
 ```python
-from airpress import PKPass
+from neo_airpress import PKPass
 
 # PKPass compressor operates on `bytes` objects as input/output
 p = PKPass(
@@ -66,7 +66,7 @@ and save it to script's parent directory.
 
 ```python
 import os
-from airpress import PKPass
+from neo_airpress import PKPass
 
 
 # Create empty pass package
