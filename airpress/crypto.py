@@ -45,9 +45,7 @@ def pkcs7_sign(
     """
 
     cert = x509.load_pem_x509_certificate(certcontent)
-    priv_key = serialization.load_pem_private_key(
-        keycontent, password=key_password
-    )
+    priv_key = serialization.load_pem_private_key(keycontent, password=key_password)
     wwdr_cert = x509.load_der_x509_certificate(wwdr_certificate)
 
     options = [pkcs7.PKCS7Options.DetachedSignature]

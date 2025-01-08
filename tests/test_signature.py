@@ -37,9 +37,7 @@ def test_should_raise_assertion_error_trying_to_sign_pkpass_without_wwdr_cert(
         pkpass_with_assets.sign(cert=cert, key=key, wwdr=None)
 
 
-def test_sign_method_returns_signature_as_bytes_object(
-    pkpass_with_assets, cert, key
-):
+def test_sign_method_returns_signature_as_bytes_object(pkpass_with_assets, cert, key):
     signature = pkpass_with_assets.sign(cert=cert, key=key)
     assert signature
     assert type(signature) is bytes

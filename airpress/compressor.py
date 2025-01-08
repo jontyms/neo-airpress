@@ -172,15 +172,11 @@ class PKPass:
         Hash values of data stored in `.__assets`.
         :returns: manifest dictionary
         """
-        assert (
-            "pass.json" in self.__assets
-        ), "Pass package must contain `pass.json`"
+        assert "pass.json" in self.__assets, "Pass package must contain `pass.json`"
         if not any(item in self.__assets for item in PKPASS_ICONS):
             msg = f"Pass package must have an icon in at least one resolution: {PKPASS_ICONS}"
             raise AssertionError(msg)
-        return {
-            name: sha1(data).hexdigest() for name, data in self.__assets.items()
-        }
+        return {name: sha1(data).hexdigest() for name, data in self.__assets.items()}
 
     @property
     def manifest(self) -> bytes:
