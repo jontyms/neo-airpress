@@ -2,7 +2,7 @@
 from cryptography import x509
 from cryptography.hazmat.bindings.openssl.binding import Binding
 from cryptography.hazmat.primitives import hashes, serialization
-from cryptography.hazmat.primitives.serialization import pkcs7
+from .pkcs7 import PKCS7SignatureBuilder, PKCS7Options
 
 copenssl = Binding.lib
 cffi = Binding.ffi
@@ -48,11 +48,11 @@ def pkcs7_sign(
     priv_key = serialization.load_pem_private_key(keycontent, password=key_password)
     wwdr_cert = x509.load_pem_x509_certificate(wwdr_certificate)
 
-    options = [pkcs7.PKCS7Options.DetachedSignature]
+    options = [PKCS7Options.DetachedSignature]
     return (
-        pkcs7.PKCS7SignatureBuilder()
+        PKCS7SignatureBuilder()
         .set_data(data)
-        .add_signer(cert, priv_key, hashes.SHA256())
+        .add_signer(cert, priv_key, hashes.SHA1())
         .add_certificate(wwdr_cert)
         .sign(serialization.Encoding.DER, options)
     )

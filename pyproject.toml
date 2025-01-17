@@ -4,11 +4,11 @@ build-backend = "hatchling.build"
 
 [project]
 name = "neo-airpress"
-version = "2.0.0"
+version = "2.0.1"
 description = "A frustration-free compression tool for PKPass archives."
 readme = "README.md"
 requires-python = ">=3.10"
-license = "MIT"
+
 authors = [
     { name = "Jstyles", email = "jstyles@styl.dev" },
 ]
@@ -18,7 +18,6 @@ dependencies = [
 ]
 
 classifiers = [
-    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
