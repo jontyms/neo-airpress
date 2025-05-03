@@ -1,3 +1,8 @@
+
+> [!WARNING]  
+> Python crypto no longer supports sha1 signatures which apple requires this package doesn't work any more
+
+
 # Neo-Airpress
 AirPress lets you create, sign and zip PKPass archives for Apple Wallet in runtime memory without a need for temporary files or directories.
 
