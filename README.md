@@ -1,6 +1,6 @@
 
 > [!WARNING]  
-> Python crypto no longer supports sha1 signatures which apple requires this package doesn't work any more
+> Python crypto no longer supports sha1 signatures which apple requires this package doesn't work any more. Project is archived and no longer maintained.
 
 
 # Neo-Airpress
