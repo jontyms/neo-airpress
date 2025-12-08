@@ -2,12 +2,10 @@
 import io
 import json
 import zipfile
-
 from hashlib import sha1
 from typing import Optional
 
 from .crypto import pkcs7_sign
-
 
 ALLOWED_PKPASS_ASSETS = (
     "background.png",
@@ -36,6 +34,7 @@ PKPASS_ICONS = ("icon.png", "icon@2x.png", "icon@3x.png")
 
 class PKPass:
     """
+    Deprecated please use something else
     Compressor for pkpass files. Provides basic validation of file types and
     whether file with given name is allowed in pkpass archive.
     Compression happens entirely in memory, meaning there's no need for input, output or
@@ -50,7 +49,6 @@ class PKPass:
         password: bytes = b"",
         validate: bool = True,
     ):
-
         self.__assets: dict = dict()
         self.key = key
         self.cert = cert
@@ -131,7 +129,9 @@ class PKPass:
 
     @password.setter
     def password(self, value):
-        assert value is None or isinstance(value, bytes), "Password must be None or `bytes` object"
+        assert value is None or isinstance(value, bytes), (
+            "Password must be None or `bytes` object"
+        )
         self.__password = value
 
     @property
@@ -229,7 +229,12 @@ class PKPass:
         """
         try:
             archive = io.BytesIO()
-            with zipfile.ZipFile(file=archive, mode="w", compression=zipfile.ZIP_DEFLATED, allowZip64=False) as buffer:
+            with zipfile.ZipFile(
+                file=archive,
+                mode="w",
+                compression=zipfile.ZIP_DEFLATED,
+                allowZip64=False,
+            ) as buffer:
                 for name, data in self.pass_package.items():
                     buffer.writestr(name, data)
             return archive.getvalue()
